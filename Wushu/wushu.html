@@ -1,107 +1,57 @@
-<div class="sheet-3colrow">
-
+<div class="sheet-2colrow">
     <div class="sheet-col">
-
     	<label>Name:</label><input type="text" name="attr_character_name" />
-		<label>Rank:</label><input type="text" name="attr_rank" />
-		<label>XP:</label><input type="number" name="attr_xp" />
-
 	</div>
 
 	<div class="sheet-col">
-		<p style="text-align: center;">
-			<img src="http://i.imgur.com/LczNS8W.png" style="max-height: 100px;" />
-		</p>
+        <label>Concept:</label><input type="text" name="attr_character_concept" />
 	</div>
+</div>
+
+<hr/>
+
+<div class="sheet-colrow">
 
 	<div class="sheet-col">
+        <h3 style="margin-bottom: 10px;">Traits</h3>
+        
+        <fieldset class="repeating_traits">
+            <div class="sheet-colrow">
 
-		<label>Setting:</label><input type="text" name="attr_setting" />
-		<label>Race:</label><input type="text" name="attr_race" />
+                <div class="sheet-col">
+                    <input type="text" name="attr_trait_name" />
+                    <select name="attr_trait_level" >
+                        <option value="1">Weakness</option>
+                        <option value="2">Default</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="roll" value="&{template:default} {{name=@{trait_name}}} {{features= @{trait_features} }} {{yang=[[?{Number of Yang}d6<@{trait_level}]]}} {{yin=[[?{Number of Yin}d6<@{trait_level}]]}}"></button>
+                </div>
 
+                 <!--
+                    &{template:default} {{name= Trait }} {{features= Description }} {{yang=[[?{Number of Yang}d6<5]]}} {{yin=[[?{Number of Yin}d6<5]]}}
+                -->
+
+                <div class="sheet-col">
+                    <textarea name="attr_trait_features"></textarea>
+                    <button type="roll" value="&{template:default} {{name= @{trait_name}}} {{features= @{trait_features} }}"></button>
+                </div>
+            </div>
+        </fieldset>
 	</div>
 
 </div>
 
 <hr/>
 
-<div class="sheet-3colrow">
+<div class="sheet-colrow">
 
-	<div class="sheet-col">
+    <div class="sheet-col">
+        <h3>Background</h3>
 
-		<h3 style="margin-bottom: 10px;">Attributes</h3>
-
-		<label>Agility</label><strong class='dee'>d</strong><input type="text" name='attr_agility' class='sheet-short'><button type='roll' name='roll_TestAttack' value='/roll 1d20 + @{Agility}'></button><br />
-		<label>Smarts</label><strong class='dee'>d</strong><input type="text" name='attr_smarts' class='sheet-short'><br />
-		<label>Spirit</label><strong class='dee'>d</strong><input type="text" name='attr_spirit' class='sheet-short'><br />
-		<label>Strength</label><strong class='dee'>d</strong><input type="text" name='attr_strength' class='sheet-short'><br />
-		<label>Vigor</label><strong class='dee'>d</strong><input type="text" name='attr_vigor' class='sheet-short' value='25'>
-
-        <hr />
-        
-        <h3 style="margin-bottom: 10px;">Skills</h3>
-        
-        <fieldset class="repeating_skills">
-            <select name="attr_dtype" class="dtype">
-                <option value="d4">d4</option>
-                <option value="d6">d6</option>
-                <option value="d8">d8</option>
-                <option value="d10">d10</option>
-                <option value="d12">d12</option>
-            </select>
-            <input type="text" name="attr_skillname" />
-        </fieldset>
-
-	</div>
-
-	<div class="sheet-col">
-		<h3 style="text-align: center;">Derived Stats</h3>
-        
-        <table style="width: 100%;">
-            <thead>
-                <tr>
-                    <th>Base</th>
-                    <th>&nbsp;</th>
-                    <th>Mod</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" name="attr_pace" class="sheet-short" /></td>
-                    <td>Pace</td>
-                    <td><input type="text" name="attr_pace_max" class="sheet-short" /></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="attr_parry" class="sheet-short" /></td>
-                    <td>Parry</td>
-                    <td><input type="text" name="attr_parry_max" class="sheet-short" /></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="attr_toughness" class="sheet-short" /></td>
-                    <td>Toughness</td>
-                    <td><input type="text" name="attr_toughness_max" class="sheet-short" /></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="attr_charisma" class="sheet-short" /></td>
-                    <td>Charisma</td>
-                    <td><input type="text" name="attr_charisma_max" class="sheet-short" /></td>
-                </tr>
-            </tbody>
-        </table>
-	</div>
-
-	<div class="sheet-col">
-
-		<h3>Hindrances</h3>
-
-		<textarea name="attr_hindrances"></textarea>
-
-		<hr/>
-
-		<h3>Edges</h3>
-
-		<textarea name="attr_edges"></textarea>
-
-	</div>
+        <textarea name="attr_description"></textarea>
+    </div>
 
 </div>
